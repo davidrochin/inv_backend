@@ -15,8 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+from inventory import views
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
+router.register(r'items', views.ItemViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('inventory.urls')),
+    path('', include(router.urls)),
+    #path('', include('inventory.urls')),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
