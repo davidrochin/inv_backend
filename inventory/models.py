@@ -42,8 +42,8 @@ class Movement(models.Model):
 
     objects = GenericManager()
 
-    document_id = models.PositiveIntegerField()
-    item_id = models.PositiveIntegerField()
+    document_id = models.ForeignKey(Document, on_delete=models.CASCADE)
+    item_id = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity_in = models.DecimalField(decimal_places=2, max_digits=10)
 
 
