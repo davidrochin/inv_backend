@@ -10,7 +10,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
-        fields = ('url', 'name')
+        fields = ('url', 'id', 'name')
 
 class ItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -20,9 +20,9 @@ class ItemSerializer(serializers.HyperlinkedModelSerializer):
 class DocumentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Document
-        fields = ('url', 'date')
+        fields = ('url', 'id', 'date')
 
 class MovementSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Movement
-        fields = ('url', 'document_id', 'item_id', 'quantity_in')
+        fields = ('url', 'id', 'document_id', 'item_id', 'quantity_in')
