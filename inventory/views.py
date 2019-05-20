@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User, Group
+
 from rest_framework import viewsets
+from rest_framework import filters
+from rest_framework import generics
+
 from inventory.serializers import UserSerializer, GroupSerializer, ItemSerializer, DocumentSerializer, MovementSerializer, CategorySerializer
 from inventory.models import Item, Document, Movement, Category
 
@@ -27,6 +31,13 @@ class DocumentViewSet(viewsets.ModelViewSet):
 class MovementViewSet(viewsets.ModelViewSet):
     queryset = Movement.objects.all()
     serializer_class = MovementSerializer
+
+    filter_fields = {'document_id'}
+
+    ##def get_queryset(self):
+    ##    print(self.kwargs)
+    ##    document_id = self.kwargs['document_id']
+    ##    return Movement.objects.filter(document_id = document_id)
     
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
