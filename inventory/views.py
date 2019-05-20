@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from inventory.serializers import UserSerializer, GroupSerializer, ItemSerializer, DocumentSerializer, MovementSerializer
-from inventory.models import Item, Document, Movement
+from inventory.serializers import UserSerializer, GroupSerializer, ItemSerializer, DocumentSerializer, MovementSerializer, CategorySerializer
+from inventory.models import Item, Document, Movement, Category
 
 def index(request):
     return HttpResponse("Hello, world. You're at the inventory index.")
@@ -27,3 +27,7 @@ class DocumentViewSet(viewsets.ModelViewSet):
 class MovementViewSet(viewsets.ModelViewSet):
     queryset = Movement.objects.all()
     serializer_class = MovementSerializer
+    
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer

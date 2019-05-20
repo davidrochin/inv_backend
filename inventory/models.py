@@ -1,6 +1,18 @@
 from django.db import models
 import datetime
 
+class GenericManager(models.Manager):
+    use_in_migrations = True
+
+    def get_by_natural_key(self, name):
+        return self.get(name = name)
+
+class Category(models.Model):
+
+    objects = GenericManager()
+
+    name = models.CharField(max_length=200)
+
 class ItemManager(models.Manager):
     use_in_migrations = True
 
@@ -13,12 +25,6 @@ class DocumentManager(models.Manager):
     def get_by_natural_key(self, name):
         return self.get(name = name)
 
-class GenericManager(models.Manager):
-    use_in_migrations = True
-
-    def get_by_natural_key(self, name):
-        return self.get(name = name)
-
 class Item(models.Model):
 
     objects = ItemManager()
@@ -26,7 +32,7 @@ class Item(models.Model):
     name = models.CharField(max_length=200)
     code = models.CharField(max_length=100, null=True)
     price = models.DecimalField(decimal_places=2, max_digits=8)
-    category_id = models.PositiveIntegerField(null=True)
+    category_id = models.ForeignKey(Category, on_delete=models.DO_NOTHING, null=True)
     provider_id = models.PositiveIntegerField(null=True)
 
     reorder_point = models.DecimalField(decimal_places=2, max_digits=10, null = True)
