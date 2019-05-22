@@ -12,6 +12,7 @@ class Category(models.Model):
     objects = GenericManager()
 
     name = models.CharField(max_length=200)
+    color = models.CharField(max_length=6, default='e52d2d')
 
 class ItemManager(models.Manager):
     use_in_migrations = True
