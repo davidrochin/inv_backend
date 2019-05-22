@@ -2,32 +2,32 @@ from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from inventory.models import Item, Document, Movement, Category
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('url', 'username', 'email', 'groups')
+        fields = ('id', 'username', 'email', 'groups')
 
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
+class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
-        fields = ('url', 'id', 'name')
+        fields = ('id', 'name')
 
-class ItemSerializer(serializers.HyperlinkedModelSerializer):
+class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
-        fields = ('url', 'id', 'name', 'code', 'price', 'category_id', 'provider_id')
+        fields = ('id', 'name', 'code', 'price', 'category_id', 'provider_id')
 
-class DocumentSerializer(serializers.HyperlinkedModelSerializer):
+class DocumentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Document
-        fields = ('url', 'id', 'date')
+        fields = ('id', 'date')
 
-class MovementSerializer(serializers.HyperlinkedModelSerializer):
+class MovementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movement
-        fields = ('url', 'id', 'document_id', 'item_id', 'quantity_in')
+        fields = ('id', 'document_id', 'item_id', 'quantity_in')
 
-class CategorySerializer(serializers.HyperlinkedModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ('url', 'name')
+        fields = ('id', 'name')
