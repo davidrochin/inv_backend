@@ -1,0 +1,74 @@
+[
+    {
+        "model": "inventory.category",
+        "pk": 1,
+        "fields": {
+            "name": "Alimentos",
+            "color": "db3636"
+        }
+    },
+    {
+        "model": "inventory.category",
+        "pk": 2,
+        "fields": {
+            "name": "Bebidas",
+            "color": "2f72bf"
+        }
+    },
+    {
+        "model": "inventory.item",
+        "fields": {
+            "name": "Coca-cola 600ml",
+            "price": "12.00",
+            "category_id": 2
+        }
+    },
+    {
+        "model": "inventory.item",
+        "fields": {
+            "name": "Coca-cola 1L",
+            "price": "20.00",
+            "category_id": 2
+        }
+    },
+    {
+        "model": "inventory.item",
+        "fields": {
+            "name": "Coca-cola 2L",
+            "price": "25.00",
+            "category_id": 2
+        }
+    },
+    {
+        "model": "inventory.item",
+        "fields": {
+            "name": "Sprite 600ml",
+            "price": "12.00",
+            "category_id": 2
+        }
+    },
+    {
+        "model": "inventory.item",
+        "fields": {
+            "name": "Sprite 1L",
+            "price": "20.00",
+            "category_id": 2
+        }
+    },
+    {
+        "model": "inventory.item",
+        "fields": {
+            "name": "Sprite 2L",
+            "price": "25.00",
+            "category_id": 2
+        }
+    },
+    {
+        "model": "inventory.item",
+        "fields": {
+            "name": "Sabritas 440g",
+            "price": "12.00",
+            "category_id": 1
+        }
+    }
+]

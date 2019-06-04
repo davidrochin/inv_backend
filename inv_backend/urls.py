@@ -31,4 +31,8 @@ urlpatterns = [
     path('', include(router.urls)),
     #path('', include('inventory.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('seed/', views.seed),
+    path('monthly-out/<int:item_id>/', views.monthly_out),
+
+    path('all/items/', views.all_items),
 ]
